@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import StyledComponentsRegistry from "./lib/registry";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Coco and Grant",
@@ -12,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <StyledComponentsRegistry>
+        <body>{children}</body>
+      </StyledComponentsRegistry>
     </html>
   );
 }

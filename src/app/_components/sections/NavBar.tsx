@@ -1,8 +1,47 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { bigBird } from "../../lib/fonts";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+
+const bounceAnimation = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-12px);
+  }
+  80% {
+    transform: translateY(-5px);
+  }
+`;
+
+const AnimatedLink = styled(Link)<{
+  $isVisible: boolean;
+  $index: number;
+  $shouldBounce: boolean;
+}>`
+  font-family: ${bigBird.style.fontFamily};
+  font-size: 2em;
+  font-weight: 400;
+  text-align: right;
+  width: max-content;
+  opacity: ${(props) => (props.$isVisible ? 1 : 0)};
+  transform: translateY(${(props) => (props.$isVisible ? 0 : "10px")});
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: black;
+
+  ${(props) =>
+    props.$shouldBounce &&
+    css`
+      animation: ${bounceAnimation} 0.6s ease-in-out;
+      animation-delay: ${0.5 + props.$index * 0.2}s;
+    `}
+`;
 
 const NavBarContainer = styled.div`
   font-family: ${bigBird.style.fontFamily};
@@ -18,28 +57,62 @@ const NavBarContainer = styled.div`
     gap: 24px;
     margin-bottom: 48px;
   }
-
-  a {
-    font-family: ${bigBird.style.fontFamily};
-    font-size: 2em;
-    font-weight: 400;
-    text-align: right;
-    width: max-content;
-
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-      color: #e43333;
-    }
-  }
 `;
 
 const About: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [shouldBounce, setShouldBounce] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setShouldBounce(true);
+          // Reset bounce animation after it completes
+          const timeout = setTimeout(() => {
+            setShouldBounce(false);
+          }, 2000); // Adjust this value based on total animation duration
+          return () => clearTimeout(timeout);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (navRef.current) {
+      observer.observe(navRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <NavBarContainer>
-      <Link href="/#weekendEvents">EVENTS</Link>
-      <Link href="/#travel">TRAVEL</Link>
-      <Link href="/#lodging">LODGING</Link>
+    <NavBarContainer ref={navRef}>
+      <AnimatedLink
+        href="/#weekendEvents"
+        $isVisible={isVisible}
+        $index={0}
+        $shouldBounce={shouldBounce}
+      >
+        EVENTS
+      </AnimatedLink>
+      <AnimatedLink
+        href="/#travel"
+        $isVisible={isVisible}
+        $index={1}
+        $shouldBounce={shouldBounce}
+      >
+        TRAVEL
+      </AnimatedLink>
+      <AnimatedLink
+        href="/#lodging"
+        $isVisible={isVisible}
+        $index={2}
+        $shouldBounce={shouldBounce}
+      >
+        LODGING
+      </AnimatedLink>
     </NavBarContainer>
   );
 };

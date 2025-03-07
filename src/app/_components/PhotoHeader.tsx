@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { directorsItalic } from "../lib/fonts";
+import Image from "next/image";
 
 const SectionContainer = styled.div`
   max-width: 940px;
@@ -19,6 +20,7 @@ const SectionContainer = styled.div`
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
+  width: 940px;
   height: 420px;
   overflow: hidden;
   max-width: 720px;
@@ -77,8 +79,7 @@ const PhotoHeader = ({ title1, title2, images }: PhotoHeaderProps) => {
       <TitleText className="left">{title1}</TitleText>
       <ImageContainer title={title1 ?? title2}>
         {images.map((image, index) => (
-          <img src={image} alt={`Image ${index}`} key={index} />
-          // <Image key={index} src={image} alt={`Image ${index}`} fill={true} />
+          <Image key={index} src={image} alt={`Image ${index}`} fill={true} />
         ))}
       </ImageContainer>
       <TitleText className="right">{title2}</TitleText>

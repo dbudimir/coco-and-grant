@@ -23,7 +23,7 @@ const LodgingContainer = styled.div`
     font-family: ${bigBird.style.fontFamily};
     font-size: 24px;
     line-height: 1.5;
-    max-width: 540px;
+    max-width: 720px;
     color: #e43333;
     letter-spacing: 2.5px;
     margin: 0 auto;
@@ -40,7 +40,7 @@ const HotelList = styled.div`
   font-family: ${bigBird.style.fontFamily};
   color: #e43333;
   font-size: 24px;
-  max-width: 540px;
+  max-width: 720px;
   margin: 0 auto;
   margin-bottom: 64px;
   line-height: 1.5;

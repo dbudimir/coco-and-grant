@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { bigBird } from "../lib/fonts";
 import DateOverlay from "./DateOverlay";
 
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import "dayjs/locale/en";
 
 const CardContainer = styled.div`
@@ -51,18 +50,11 @@ const EventCard = ({
   event: string;
   location: string;
 }) => {
-  const [dateObj, setDateObj] = useState<Dayjs | null>(null);
-
-  // Generate random bottom and right values
-  useEffect(() => {
-    setDateObj(dayjs(date));
-  }, []);
-
   return (
     <CardContainer>
-      {dateObj && <Title>{dateObj.format("dddd, MMMM D")}</Title>}
+      <Title>{dayjs(date).format("dddd, MMMM D")}</Title>
       <InnerCard>
-        <DateOverlay date={date} />
+        <DateOverlay date={dayjs(date).format("M.D.YY")} />
         <InnerText>{event}</InnerText>
         <InnerText>{location}</InnerText>
       </InnerCard>

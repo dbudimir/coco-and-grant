@@ -8,14 +8,14 @@ import PhotoHeader from "../PhotoHeader";
 const LodgingContainer = styled.div`
   max-width: 720px;
   margin: 0 auto;
-  padding: 24px 0;
+  padding: 0 0 48px;
 
   > h1 {
     font-family: ${bigBird.style.fontFamily};
     margin: 0 auto;
     font-weight: 400;
     text-align: left;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
     padding: 0 24px;
   }
 
@@ -28,8 +28,13 @@ const LodgingContainer = styled.div`
     letter-spacing: 2.5px;
     margin: 0 auto;
     line-height: 1;
-    margin-bottom: 64px;
+    margin-bottom: 48px;
     padding: 0 24px;
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
   }
 `;
 
@@ -42,13 +47,20 @@ const HotelList = styled.div`
   font-size: 24px;
   max-width: 720px;
   margin: 0 auto;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
   line-height: 1.5;
   padding: 0 24px;
 
   a {
     text-decoration: underline;
   }
+`;
+
+const BookingNote = styled.div`
+  font-size: 0.8em;
+  margin-top: 4px;
+  margin-left: 24px;
+  color: #e43333;
 `;
 
 const Lodging: React.FC = () => {
@@ -68,7 +80,10 @@ const Lodging: React.FC = () => {
       <h1>Hotels</h1>
       <HotelList>
         <span>
-          <a href="https://www.littlecatlodge.com/" target="_blank">
+          <a
+            href="https://hotels.cloudbeds.com/reservation/VWy0rd#promo=GrantConner2025"
+            target="_blank"
+          >
             Little Cat Lodge
           </a>{" "}
           – Hillsdale, NY
@@ -78,6 +93,9 @@ const Lodging: React.FC = () => {
             Farmer and Sons
           </a>{" "}
           – Hudson, NY
+          <BookingNote>
+            Mention Coco and Grant's wedding when reaching out to book
+          </BookingNote>
         </span>
         <span>
           <a href="https://www.thealander.com/" target="_blank">
@@ -103,11 +121,16 @@ const Lodging: React.FC = () => {
       </HotelList>
       <h1>Airbnbs</h1>
       <p>
-        There are great Airbnb options in Hillsdale and neighboring towns like
-        Craryville and Copake. we suggest booking sooner rather than later. We
-        would also consider renting a car as Ubers are not available in the area
-        to get around. we will share a list of cab companies in the area as we
-        get closer to the date.
+        There are{" "}
+        <a
+          href="https://www.airbnb.com/wishlists/v/1619796989?view_only_token=7ab98ada-e7dd-467b-97ed-1db3069321ed"
+          target="_blank"
+        >
+          great Airbnb options
+        </a>{" "}
+        in Hillsdale and neighboring towns like Craryville and Copake. We
+        suggest booking sooner rather than later. We would also consider renting
+        a car as Ubers are not available in the area to get around.
       </p>
     </LodgingContainer>
   );

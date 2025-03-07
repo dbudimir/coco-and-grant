@@ -4,7 +4,7 @@ import { bigBird } from "../lib/fonts";
 
 const FAQContainer = styled.div`
   max-width: 720px;
-  margin: 24px auto;
+  margin: 24px auto 24px;
 `;
 
 const FAQList = styled.ul`
@@ -13,7 +13,7 @@ const FAQList = styled.ul`
 `;
 
 const FAQItem = styled.li`
-  margin-bottom: 1rem;
+  margin-bottom: 24px;
   padding: 0px 24px;
 `;
 
@@ -109,12 +109,11 @@ const FAQ = () => {
 
   const faqData = [
     {
-      question: "Are kids invited?",
+      question: "What if I know I can't make it?",
       answer: (
         <p>
-          Due to capacity limitations at our venue, our wedding will be an
-          adults-only celebration. However, our Sunday brunch is for all ages,
-          and if the weather cooperates, there will be swimming!
+          We totally understand. As soon as you can let us know we would greatly
+          appreciate it.
         </p>
       ),
     },
@@ -129,38 +128,14 @@ const FAQ = () => {
       ),
     },
     {
-      question: "What should I wear?",
-      answer: (
-        <>
-          <ul>
-            <li>
-              <strong>Friday Night (Welcome Party at The Caboose):</strong>
-              <br />
-              Festive, dressy casual.
-            </li>
-            <li>
-              <strong>Saturday Night (Wedding at Taconic Ridge Farm):</strong>
-              <br /> Dress to impress—think traditional cocktail attire, but we
-              encourage bold looks.
-            </li>
-            <li>
-              <strong>Sunday (Brunch at Nancy & John&apos;s Home):</strong>
-              <br />
-              Anything goes—PJs, sweats, whatever makes you happy.
-            </li>
-          </ul>
-
-          <p>
-            If you&apos;ll be wearing heels, we recommend block heels or flats,
-            as parts of the venue have grass and gravel.
-          </p>
-        </>
-      ),
-    },
-    {
       question: "How do I get to the wedding venue?",
       answer: (
         <>
+          <p>
+            Parking will be available for anyone who chooses to drive to any of
+            the events.
+          </p>
+          <br />
           <p>
             We will provide shuttle transportation to and from the venue for
             guests staying in:
@@ -190,12 +165,11 @@ const FAQ = () => {
         <>
           <p>
             Getting around outside of Hudson without a car can be tricky, so if
-            you don’t have access to one, we highly recommend staying in Hudson.
+            you don't have access to one, we highly recommend staying in Hudson.
             That said, here are some local cab companies in the Hudson Valley:
           </p>
-
+          <br />
           <ul>
-            <li>Hudson Region Transport (518) 697-0056</li>
             <li>
               Mike Pizza (personal car service) (518) 755-2098 *Call or text
             </li>
@@ -220,11 +194,10 @@ const FAQ = () => {
       question: "Will there be transportation after the wedding?",
       answer: (
         <p>
-          Yes! Shuttles will be available to take guests back to some Hudson and
+          Yes! Shuttles will be available to take guests back to Hudson and
           Hillsdale hotels listed in our accommodations section. For guests
-          staying in Airbnbs: We cannot guarantee transportation, but if
-          you&apos;re in Craryville, Hudson, or Egremont, reach out, and
-          we&apos;ll try to coordinate something.
+          staying in Airbnbs: We cannot guarantee transportation, but we will
+          hire local cab companies to help support transport.
         </p>
       ),
     },
@@ -243,8 +216,18 @@ const FAQ = () => {
         <p>
           Our caterer will offer vegetarian, gluten-free, and other
           dietary-friendly options throughout the weekend. Please let us know
-          your dietary restrictions when you RSVP, and we&apos;ll do our best to
+          your dietary restrictions when you RSVP, and we'll do our best to
           accommodate.
+        </p>
+      ),
+    },
+    {
+      question: "Are kids invited?",
+      answer: (
+        <p>
+          Due to capacity limitations at our venue, our wedding will be an
+          adults-only celebration. However, our Sunday brunch is for all ages,
+          and if the weather cooperates, there will be swimming and games!
         </p>
       ),
     },
@@ -253,17 +236,16 @@ const FAQ = () => {
       answer: (
         <>
           <p>
-            Whether you&apos;re making a weekend out of it or just have some
-            free time between events, here are some of our favorite spots in
-            Hudson, Hillsdale, and beyond.
+            Whether you're making a weekend out of it or just have some free
+            time between events, here are some of our favorite spots in Hudson,
+            Hillsdale, and beyond.
           </p>
 
           <h2>Hudson, NY</h2>
           <ul>
             <li>
               <strong>The Maker Hotel Bar</strong> - Beautiful spot for
-              cocktails or a meal. If you&apos;re feeling fancy, you can stay
-              here.
+              cocktails or a meal. If you're feeling fancy, you can stay here.
             </li>
             <li>
               <strong>The Antique Warehouse</strong> – football fields of
@@ -271,14 +253,14 @@ const FAQ = () => {
             </li>
             <li>
               <strong>Finch</strong> – Beautifully curated furniture and
-              clothing store. Warning: It’s all amazing (and pricey).
+              clothing store. Warning: It's all amazing (and pricey).
             </li>
             <li>
               <strong>Feast and Floret </strong>– our favorite restaurant in
               Hudson
             </li>
             <li>
-              <strong>Baba Louie’s</strong> – Family-friendly spot for delicious
+              <strong>Baba Louie's</strong> – Family-friendly spot for delicious
               wood-fired sourdough pizza.
             </li>
             <li>
@@ -286,7 +268,7 @@ const FAQ = () => {
               and gourmet provisions.
             </li>
             <li>
-              <strong> Lil’ Deb’s Oasis</strong> – Funky, vibrant, and
+              <strong> Lil' Deb's Oasis</strong> – Funky, vibrant, and
               delicious. A Hudson must-visit.
             </li>
             <li>
@@ -309,7 +291,7 @@ const FAQ = () => {
               store with a little bit of everything.
             </li>
             <li>
-              <strong>Sweet Pea’s Diner</strong> – Johnny Kimelman’s favorite
+              <strong>Sweet Pea's Diner</strong> – Johnny Kimelman's favorite
               spot for breakfast, lunch, and coffee.
             </li>
             <li>
@@ -346,8 +328,6 @@ const FAQ = () => {
         <p>
           Feel free to reach out to Coco or Grant directly or email{" "}
           <a href="mailto:grantandcoco@gmail.com"> grantandcoco@gmail.com</a>.
-          For quick responses: Coco loves phone calls, and Grant prefers texts
-          or emails.
         </p>
       ),
     },

@@ -15,6 +15,10 @@ const AboutContainer = styled.div`
     font-weight: 400;
     text-align: right;
     margin-bottom: 64px;
+
+    @media (max-width: 600px) {
+      text-align: center;
+    }
   }
 
   p {
@@ -30,16 +34,14 @@ const AboutContainer = styled.div`
 
 const About = () => {
   return (
-    <>
-      <AboutContainer>
-        <h1>September 5-7, 2025</h1>
-        <p>
-          We&apos;re thrilled to invite you to a weekend of love and celebration
-          in the Hudson Valley. While final details are all being sorted, we
-          hope this site provides helpful information as you make travel plans.
-        </p>
-      </AboutContainer>
-    </>
+    <AboutContainer>
+      <h1>September 5-7, 2025</h1>
+      <p>
+        We&apos;re thrilled to invite you to a weekend of love and celebration
+        in the Hudson Valley. While final details are all being sorted, we hope
+        this site provides helpful information as you make travel plans.
+      </p>
+    </AboutContainer>
   );
 };
 

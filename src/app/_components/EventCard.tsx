@@ -13,6 +13,7 @@ const CardContainer = styled.div`
   align-items: center;
   font-family: ${bigBird.style.fontFamily};
   margin-bottom: 24px;
+  min-width: 300px;
 `;
 
 const Title = styled.div`
@@ -25,9 +26,14 @@ const Title = styled.div`
 const InnerCard = styled.div`
   border: 8px solid black;
   border-radius: 6px;
-  max-width: 300px;
+  width: 300px;
   box-sizing: border-box;
-  padding: 48px 12px;
+  padding: 0 12px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   background-image: url("/static-assets/event-card-background.png");
   overflow: hidden;
@@ -41,14 +47,49 @@ const InnerText = styled.div`
   position: relative;
 `;
 
+const TimeText = styled(InnerText)`
+  font-size: 1.2em;
+  margin-top: 12px;
+`;
+
+const AttireText = styled(InnerText)`
+  font-size: 1em;
+  margin-top: 12px;
+  font-style: italic;
+`;
+
+const AddressText = styled.a`
+  font-size: 1.2em;
+  color: #666;
+  margin-top: 12px;
+  font-style: italic;
+  width: 300px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    text-decoration: underline;
+    color: #888;
+  }
+`;
+
 const EventCard = ({
   date,
   event,
   location,
+  address,
+  mapUrl,
+  time,
+  attire,
 }: {
   date: string;
   event: string;
   location: string;
+  address: string;
+  mapUrl: string;
+  time?: string;
+  attire?: string;
 }) => {
   return (
     <CardContainer>
@@ -56,8 +97,13 @@ const EventCard = ({
       <InnerCard>
         <DateOverlay date={dayjs(date).format("M.D.YY")} />
         <InnerText>{event}</InnerText>
-        <InnerText>{location}</InnerText>
+        <TimeText>{location}</TimeText>
+        {time && <TimeText>{time}</TimeText>}
+        {attire && <AttireText>{attire}</AttireText>}
       </InnerCard>
+      <AddressText href={mapUrl} target="_blank" rel="noopener noreferrer">
+        {address}
+      </AddressText>
     </CardContainer>
   );
 };

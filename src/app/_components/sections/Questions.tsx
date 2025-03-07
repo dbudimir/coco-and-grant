@@ -9,7 +9,8 @@ import PhotoFooter from "../PhotoFooter";
 import FAQ from "../FAQ";
 
 const QuestionsContainer = styled.div`
-  margin: 48px auto 0;
+  margin: 48px auto;
+  padding: 0 0 48px;
 `;
 
 const ImageContainer = styled.div`
@@ -17,10 +18,11 @@ const ImageContainer = styled.div`
   width: 110vw;
   height: 220px;
   transform: rotate(-5deg) translateX(-10vw);
-  margin: auto 24px;
+  margin: 0 24px -48px;
+  z-index: 0;
 
   @media (max-width: 768px) {
-    margin-bottom: 36px;
+    margin-bottom: 48px;
   }
 
   img {
@@ -41,7 +43,15 @@ const Questions: React.FC = () => {
           fill={true}
         />
       </ImageContainer>
-      <HeaderText transform="false">Questions</HeaderText>
+      <HeaderText
+        style={{
+          position: "relative",
+          zIndex: 1,
+          marginBottom: "72px",
+        }}
+      >
+        Questions
+      </HeaderText>
       <FAQ />
       <PhotoFooter
         images={[

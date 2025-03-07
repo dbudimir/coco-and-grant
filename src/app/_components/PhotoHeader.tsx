@@ -1,19 +1,57 @@
 "use client";
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { directorsItalic } from "../lib/fonts";
 import Image from "next/image";
+
+const floatLeft = keyframes`
+  0% {
+    transform: translateX(0) translateY(40%);
+  }
+  50% {
+    transform: translateX(-12px) translateY(40%);
+  }
+  100% {
+    transform: translateX(0) translateY(40%);
+  }
+`;
+
+const floatRight = keyframes`
+  0% {
+    transform: translateX(-50%);
+  }
+  50% {
+    transform: translateX(calc(-50% + 12px));
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+`;
+
+const floatLeftBottom = keyframes`
+  0% {
+    transform: translateX(0) translateY(-45%);
+  }
+  50% {
+    transform: translateX(-12px) translateY(-45%);
+  }
+  100% {
+    transform: translateX(0) translateY(-45%);
+  }
+`;
 
 const SectionContainer = styled.div`
   max-width: 940px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 24px auto;
-  margin-bottom: ${({ title }) => (title === "Lodging" ? "-48px" : "0")};
+  margin: 48px auto;
+  margin-bottom: ${({ title }) => (title === "Lodging" ? "0" : "48px")};
+  overflow: hidden;
+  position: relative;
 
   @media (max-width: 600px) {
-    margin-bottom: 0;
+    margin-bottom: 48px;
   }
 `;
 
@@ -24,8 +62,10 @@ const ImageContainer = styled.div`
   height: 420px;
   overflow: hidden;
   max-width: 720px;
-  margin: 0 auto;
   position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: ${floatRight} 16s ease-in-out infinite;
 
   img {
     width: 100%;
@@ -47,15 +87,15 @@ const TitleText = styled.h1`
   width: max-content;
   line-height: 1;
   color: #e43333;
-  transform: translateY(40%);
   z-index: 1;
   width: max-content;
   padding: 0 24px;
   letter-spacing: -5px;
+  animation: ${floatLeft} 16s ease-in-out infinite;
 
   &.right {
-    transform: translateY(-45%);
     margin-left: auto;
+    animation: ${floatLeftBottom} 16s ease-in-out infinite;
   }
 
   @media (max-width: 600px) {

@@ -11,6 +11,7 @@ export const HeaderText = styled.h1<{ transform?: string }>`
   line-height: 1;
   color: #e43333;
   letter-spacing: -5px;
+  z-index: 1;
 
   @media (max-width: 1200px) {
     font-size: calc(24px + 15vw);

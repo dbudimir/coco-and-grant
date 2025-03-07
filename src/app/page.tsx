@@ -12,6 +12,7 @@ import WeekendEvents from "./_components/sections/WeekendEvents";
 import Travel from "./_components/sections/Travel";
 import Lodging from "./_components/sections/Lodging";
 import Questions from "./_components/sections/Questions";
+import BackgroundDecorations from "./_components/BackgroundDecorations";
 
 const PageContainer = styled.div`
   height: unset;
@@ -62,6 +63,7 @@ export default function Home() {
         id="content"
         className={passwordIsValid ? "content" : "content hidden"}
       >
+        {passwordIsValid && <BackgroundDecorations />}
         <Overview />
         <About />
         <NavBar />

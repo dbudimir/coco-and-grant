@@ -165,8 +165,9 @@ const FAQ = () => {
         <>
           <p>
             Getting around outside of Hudson without a car can be tricky, so if
-            you don't have access to one, we highly recommend staying in Hudson.
-            That said, here are some local cab companies in the Hudson Valley:
+            you don&apos;t have access to one, we highly recommend staying in
+            Hudson. That said, here are some local cab companies in the Hudson
+            Valley:
           </p>
           <br />
           <ul>
@@ -216,7 +217,7 @@ const FAQ = () => {
         <p>
           Our caterer will offer vegetarian, gluten-free, and other
           dietary-friendly options throughout the weekend. Please let us know
-          your dietary restrictions when you RSVP, and we'll do our best to
+          your dietary restrictions when you RSVP, and we&apos;ll do our best to
           accommodate.
         </p>
       ),
@@ -236,16 +237,17 @@ const FAQ = () => {
       answer: (
         <>
           <p>
-            Whether you're making a weekend out of it or just have some free
-            time between events, here are some of our favorite spots in Hudson,
-            Hillsdale, and beyond.
+            Whether you&apos;re making a weekend out of it or just have some
+            free time between events, here are some of our favorite spots in
+            Hudson, Hillsdale, and beyond.
           </p>
 
           <h2>Hudson, NY</h2>
           <ul>
             <li>
               <strong>The Maker Hotel Bar</strong> - Beautiful spot for
-              cocktails or a meal. If you're feeling fancy, you can stay here.
+              cocktails or a meal. If you&apos;re feeling fancy, you can stay
+              here.
             </li>
             <li>
               <strong>The Antique Warehouse</strong> – football fields of
@@ -253,26 +255,26 @@ const FAQ = () => {
             </li>
             <li>
               <strong>Finch</strong> – Beautifully curated furniture and
-              clothing store. Warning: It's all amazing (and pricey).
+              clothing store. Warning: It&apos;s all amazing (and pricey).
             </li>
             <li>
               <strong>Feast and Floret </strong>– our favorite restaurant in
               Hudson
             </li>
             <li>
-              <strong>Baba Louie's</strong> – Family-friendly spot for delicious
-              wood-fired sourdough pizza.
+              <strong>Baba Louie&apos;s</strong> – Family-friendly spot for
+              delicious wood-fired sourdough pizza.
             </li>
             <li>
               <strong>Talbott & Arding</strong> – Artisanal cheese, baked goods,
               and gourmet provisions.
             </li>
             <li>
-              <strong> Lil' Deb's Oasis</strong> – Funky, vibrant, and
+              <strong>Lil&apos; Deb&apos;s Oasis</strong> – Funky, vibrant, and
               delicious. A Hudson must-visit.
             </li>
             <li>
-              <strong>Backbar – Casual</strong>, fun spot for drinks and bites.
+              <strong>Backbar</strong> – Casual, fun spot for drinks and bites.
             </li>
             <li>
               <strong>Flowerkraut</strong> – A unique flower and gift shop with
@@ -291,8 +293,8 @@ const FAQ = () => {
               store with a little bit of everything.
             </li>
             <li>
-              <strong>Sweet Pea's Diner</strong> – Johnny Kimelman's favorite
-              spot for breakfast, lunch, and coffee.
+              <strong>Sweet Pea&apos;s Diner</strong> – Johnny Kimelman&apos;s
+              favorite spot for breakfast, lunch, and coffee.
             </li>
             <li>
               <strong>The Restaurant at Little Cat Lodge</strong> – Cozy

@@ -45,8 +45,8 @@ const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 48px auto;
-  margin-bottom: ${({ title }) => (title === "Lodging" ? "0" : "48px")};
+  margin: auto;
+  margin-bottom: ${({ title }) => (title === "Lodging" ? "-24px" : "48px")};
   overflow: hidden;
   position: relative;
 
@@ -58,17 +58,23 @@ const SectionContainer = styled.div`
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
-  width: 940px;
+
   height: 420px;
   overflow: hidden;
   max-width: 720px;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  /* position: relative; */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   animation: ${floatRight} 16s ease-in-out infinite;
 
+  position: relative;
+
   img {
-    width: 100%;
+    position: absolute;
+    /* left: 100% !important; */
+    /* transform: translateX(-50%) !important; */
+    width: 110% !important;
+    max-width: 110% !important;
     height: 100%;
     object-fit: cover;
     object-position: center center;
@@ -92,6 +98,7 @@ const TitleText = styled.h1`
   padding: 0 24px;
   letter-spacing: -5px;
   animation: ${floatLeft} 16s ease-in-out infinite;
+  max-width: 100%;
 
   &.right {
     margin-left: auto;

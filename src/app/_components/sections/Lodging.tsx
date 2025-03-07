@@ -7,7 +7,7 @@ import PhotoHeader from "../PhotoHeader";
 
 const LodgingContainer = styled.div`
   max-width: 720px;
-  margin: 0 auto;
+  margin: 0 auto 48px;
   padding: 0 0 48px;
 
   > h1 {
@@ -94,7 +94,7 @@ const Lodging: React.FC = () => {
           </a>{" "}
           – Hudson, NY
           <BookingNote>
-            Mention Coco and Grant's wedding when reaching out to book
+            Mention Coco and Grant&apos;s wedding when reaching out to book
           </BookingNote>
         </span>
         <span>

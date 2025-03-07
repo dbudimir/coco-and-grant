@@ -3,17 +3,17 @@ import { directorsItalic } from "../lib/fonts";
 import styled from "styled-components";
 
 const DateOverlayContainer = styled.div<{
-  bottom?: string;
-  right?: string;
-  transform?: string;
+  $bottom?: string;
+  $right?: string;
+  $transform?: string;
 }>`
   position: absolute;
   font-size: 3.5rem;
   color: #e43333;
   font-family: cursive;
-  bottom: ${({ bottom }) => bottom};
-  right: ${({ right }) => right};
-  transform: ${({ transform }) => transform};
+  bottom: ${({ $bottom }) => $bottom};
+  right: ${({ $right }) => $right};
+  transform: ${({ $transform }) => $transform};
   font-family: ${directorsItalic.style.fontFamily};
   z-index: 0;
   opacity: 0.65;
@@ -41,9 +41,9 @@ const DateOverlay = ({ date }: { date: string }) => {
 
   return (
     <DateOverlayContainer
-      bottom={randomPosition.bottom}
-      right={randomPosition.right}
-      transform={randomPosition.transform}
+      $bottom={randomPosition.bottom}
+      $right={randomPosition.right}
+      $transform={randomPosition.transform}
     >
       {date}
     </DateOverlayContainer>

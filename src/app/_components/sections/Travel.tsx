@@ -6,12 +6,9 @@ import { bigBird } from "../../lib/fonts";
 import PhotoHeader from "../PhotoHeader";
 
 const TravelContainer = styled.div`
-  max-width: 940px;
-  margin: -48px auto 0;
+  max-width: 720px;
+  margin: 0 auto 48px;
   padding: 0 0 48px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
   position: relative;
 
   p {

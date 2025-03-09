@@ -80,8 +80,10 @@ const ImageContainer = styled.div`
     object-position: center center;
     opacity: 0.75;
     filter: ${({ title }) =>
-      title === "Travel" || title === "Lodging"
+      title === "Lodging"
         ? "grayscale(1) contrast(1.5)"
+        : title === "Travel"
+        ? "none"
         : "grayscale(1)"};
   }
 `;

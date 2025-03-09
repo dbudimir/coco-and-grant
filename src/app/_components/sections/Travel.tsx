@@ -75,7 +75,7 @@ const WeekendEvents: React.FC = () => {
   return (
     <TravelContainer id="travel">
       <PhotoHeader title1="Travel" images={["/static-assets/travel-1.jpg"]} />
-      <IconPlane viewBox="0 0 46.876 46.876" fill="#e43333">
+      {/* <IconPlane viewBox="0 0 46.876 46.876" fill="#e43333">
         <path
           d="M26.602,24.568l15.401,6.072l-0.389-4.902c-10.271-7.182-9.066-6.481-14.984-10.615V2.681
           c0-1.809-1.604-2.701-3.191-2.681c-1.587-0.021-3.19,0.872-3.19,2.681v12.44c-5.918,4.134-4.714,3.434-14.985,10.615l-0.39,4.903
@@ -89,7 +89,7 @@ const WeekendEvents: React.FC = () => {
           clipRule="evenodd"
           d="M3 1L1.66667 5H0V8H1V15H3V13H13V15H15V8H16V5H14.3333L13 1H3ZM4 9C3.44772 9 3 9.44772 3 10C3 10.5523 3.44772 11 4 11C4.55228 11 5 10.5523 5 10C5 9.44772 4.55228 9 4 9ZM11.5585 3H4.44152L3.10819 7H12.8918L11.5585 3ZM12 9C11.4477 9 11 9.44772 11 10C11 10.5523 11.4477 11 12 11C12.5523 11 13 10.5523 13 10C13 9.44772 12.5523 9 12 9Z"
         />
-      </IconCar>
+      </IconCar> */}
       <SectionHeader>Air Travel</SectionHeader>
       <p>
         For those flying in, the closest airport is Albany which is 45 mins to

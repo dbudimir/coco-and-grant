@@ -17,7 +17,8 @@ const DateOverlayContainer = styled.div<{
   font-family: ${directorsItalic.style.fontFamily};
   z-index: 0;
   opacity: 0.65;
-  width: 100%;
+  /* width: 100%; */
+  width: max-content;
 `;
 
 const DateOverlay = ({ date }: { date: string }) => {
@@ -28,13 +29,15 @@ const DateOverlay = ({ date }: { date: string }) => {
   });
 
   useEffect(() => {
-    const randomBottom = Math.floor(Math.random() * 20) - 20; // Random between -10 and 9
-    const randomRight = Math.floor(Math.random() * 100); // Random between 0 and 19
+    // const randomBottom = Math.floor(Math.random() * 20) - 0; // Random between -10 and 9
+    // const randomRight = Math.floor(Math.random() * 100); // Random between 0 and 19
     const randomRotation = Math.floor(Math.random() * 61) - 30; // Random between -10 and 9
 
     setRandomPosition({
-      bottom: `${randomBottom}px`,
-      right: `${randomRight}px`,
+      // bottom: `${randomBottom}px`,
+      // right: `${randomRight}px`,
+      bottom: "0px",
+      right: "0px",
       transform: `rotate(${randomRotation}deg)`,
     });
   }, []);

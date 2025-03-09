@@ -35,7 +35,7 @@ const ImageContainer = styled.div`
 
 const Questions: React.FC = () => {
   return (
-    <QuestionsContainer>
+    <QuestionsContainer id="faq">
       <ImageContainer>
         <Image
           alt="questions-header"

@@ -19,3 +19,9 @@ export const bigBird = localFont({
   variable: "--font-big-bird",
   display: "swap",
 });
+
+export const catamaran = localFont({
+  src: [{ path: "../../../public/fonts/Catamaran.otf", weight: "500" }],
+  variable: "--font-catamaran",
+  display: "swap",
+});

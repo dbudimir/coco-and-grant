@@ -3,6 +3,7 @@
 import styled, { keyframes, css } from "styled-components";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 
 const Container = styled.div`
   position: absolute;
@@ -32,22 +33,24 @@ const DecorativeImage = styled(Image)<{
   $flip?: boolean;
   $isStar?: boolean;
   $rotation?: number;
+  $noEffects?: boolean;
 }>`
   position: absolute;
-  opacity: 0.4;
-  filter: sepia(0.2) brightness(0.95) contrast(0.9);
+  opacity: ${({ $noEffects }) => ($noEffects ? 1 : 0.4)};
+  filter: ${({ $noEffects }) =>
+    $noEffects ? "none" : "sepia(0.2) brightness(0.95) contrast(0.9)"};
   transform: ${({ $flip, $rotation }) =>
     `${$flip ? "scaleX(-1)" : "none"} rotate(${$rotation}deg)`};
   ${({ $position }) => $position};
   transition: opacity 0.3s ease;
-  ${({ $isStar }) =>
+  /* ${({ $isStar }) =>
     $isStar &&
     css`
       animation: ${quickFlip} 5s linear infinite;
-    `}
+    `} */
 
   &:hover {
-    opacity: 0.4;
+    opacity: ${({ $noEffects }) => ($noEffects ? 1 : 0.4)};
   }
 `;
 
@@ -139,8 +142,8 @@ const DECORATION_TYPES = [
     type: "star",
     isStar: true,
   },
-  { src: "/static-assets/decorations/cupid.png", size: 96, type: "cupid" },
-  { src: "/static-assets/decorations/stars.gif", size: 24, type: "stars" },
+  { src: "/static-assets/decorations/cupid.png", size: 164, type: "cupid" },
+  // { src: "/static-assets/decorations/stars.gif", size: 24, type: "stars" },
   // {
   //   src: "/static-assets/decorations/heart-loader-2.gif",
   //   size: 32,
@@ -155,9 +158,43 @@ interface Props {
 
 const BackgroundDecorations = ({ numDecorations = 14 }: Props) => {
   const [decorations, setDecorations] = useState<Decoration[]>([]);
+  const searchParams = useSearchParams();
+  const isPBJMode = searchParams.get("mode") === "pbj";
 
   useEffect(() => {
-    // Calculate how many of each type we need
+    if (isPBJMode) {
+      // In PBJ mode, show multiple PBJ gifs
+      const pbjPositions: Position[] = [];
+      const pbjDecorations = Array.from({ length: 20 }, () => {
+        const isEdgePosition = Math.random() > 0.3;
+        const position = generateRandomPosition(
+          pbjPositions,
+          isEdgePosition,
+          "different"
+        );
+        pbjPositions.push(position);
+
+        const positionString = `top: ${position.top}vh; ${
+          position.left
+            ? `left: ${position.left}${position.left > 1 ? "px" : "%"}`
+            : `right: ${position.right}px`
+        };`;
+
+        return {
+          src: "/static-assets/decorations/pbj.gif",
+          size: 96,
+          type: "pbj",
+          position: positionString,
+          rotation: Math.random() * 360, // Full rotation possible for PBJ mode
+          flip: Math.random() > 0.5,
+        };
+      });
+
+      setDecorations(pbjDecorations);
+      return;
+    }
+
+    // Regular mode - Calculate how many of each type we need
     const perType = Math.floor(numDecorations / DECORATION_TYPES.length);
     const remainder = numDecorations % DECORATION_TYPES.length;
 
@@ -172,6 +209,11 @@ const BackgroundDecorations = ({ numDecorations = 14 }: Props) => {
           ...decType,
           flip: Math.random() > 0.5,
           rotation: Math.random() * 30 - 15, // Random rotation between -15 and 15 degrees
+          // Add random size for cupid
+          size:
+            decType.type === "cupid"
+              ? Math.floor(96 + Math.random() * (172 - 72))
+              : decType.size,
         }));
       }
     );
@@ -214,7 +256,7 @@ const BackgroundDecorations = ({ numDecorations = 14 }: Props) => {
     };
 
     setDecorations(shuffleArray(decorationsWithPositions));
-  }, [numDecorations]);
+  }, [numDecorations, isPBJMode]);
 
   return (
     <Container>
@@ -229,6 +271,7 @@ const BackgroundDecorations = ({ numDecorations = 14 }: Props) => {
           $flip={decoration.flip}
           $isStar={decoration.isStar}
           $rotation={decoration.rotation}
+          $noEffects={isPBJMode}
         />
       ))}
     </Container>

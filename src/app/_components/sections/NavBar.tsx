@@ -35,6 +35,11 @@ const AnimatedLink = styled(Link)<{
   transition: opacity 0.3s ease, transform 0.3s ease;
   color: black;
 
+  &:hover {
+    color: #e43333;
+    text-decoration: underline;
+  }
+
   ${(props) =>
     props.$shouldBounce &&
     css`
@@ -112,6 +117,14 @@ const About: React.FC = () => {
         $shouldBounce={shouldBounce}
       >
         LODGING
+      </AnimatedLink>
+      <AnimatedLink
+        href="/#faq"
+        $isVisible={isVisible}
+        $index={3}
+        $shouldBounce={shouldBounce}
+      >
+        FAQ
       </AnimatedLink>
     </NavBarContainer>
   );

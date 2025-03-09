@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { bigBird } from "../lib/fonts";
+import { bigBird, catamaran } from "../lib/fonts";
 
 const FAQContainer = styled.div`
   max-width: 720px;
@@ -42,8 +42,8 @@ const FAQQuestion = styled.div`
 `;
 
 const FAQAnswer = styled.div`
-  /* font-family: ${bigBird.style.fontFamily}; */
-  font-size: 18px;
+  font-family: ${catamaran.style.fontFamily};
+  font-size: 24px;
   margin: 24px auto;
   padding: 0px 24px;
 

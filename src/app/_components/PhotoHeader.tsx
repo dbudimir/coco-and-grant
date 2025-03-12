@@ -3,6 +3,7 @@
 import styled, { keyframes } from "styled-components";
 import { directorsItalic } from "../lib/fonts";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const floatLeft = keyframes`
   0% {
@@ -38,6 +39,22 @@ const floatLeftBottom = keyframes`
   100% {
     transform: translateX(0) translateY(-45%);
   }
+`;
+
+const SecretButton = styled.button`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0.5;
+  height: 40px;
+  width: 60px;
+  top: 175px;
+  right: 150px;
 `;
 
 const SectionContainer = styled.div`
@@ -123,13 +140,23 @@ interface PhotoHeaderProps {
 }
 
 const PhotoHeader = ({ title1, title2, images }: PhotoHeaderProps) => {
+  const router = useRouter();
+  const title = title1 ?? title2;
+
+  const handlePBJMode = () => {
+    router.push("/?mode=pbj");
+  };
+
   return (
-    <SectionContainer title={title1 ?? title2}>
+    <SectionContainer title={title}>
       <TitleText className="left">{title1}</TitleText>
-      <ImageContainer title={title1 ?? title2}>
+      <ImageContainer title={title}>
         {images.map((image, index) => (
           <Image key={index} src={image} alt={`Image ${index}`} fill={true} />
         ))}
+        {title === "Travel" && (
+          <SecretButton onClick={handlePBJMode} aria-label="Secret Mode" />
+        )}
       </ImageContainer>
       <TitleText className="right">{title2}</TitleText>
     </SectionContainer>

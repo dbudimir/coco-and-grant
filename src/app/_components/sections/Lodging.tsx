@@ -74,8 +74,9 @@ const Lodging: React.FC = () => {
         Hudson and Hillsdale are surrounded by many boutique hotels and Airbnbs.
         Here is a list of options that we recommend exploring. For those
         planning to take the train, we recommend you stay in Hudson, NY where
-        you will have walking access to many great restaurants and shops and bus
-        service to the wedding venue on Saturday.
+        you will have walking access to many great restaurants and shops and the
+        Friday night venue. There will also be busses to the Saturday and Sunday
+        events.
       </p>
       <h1>Hotels</h1>
       <HotelList>
@@ -87,6 +88,9 @@ const Lodging: React.FC = () => {
             Little Cat Lodge
           </a>{" "}
           – Hillsdale, NY
+          <BookingNote>
+            Use the link above to book with our block by June 5th.
+          </BookingNote>
         </span>
         <span>
           <a href="https://www.wmfarmerandsons.com/" target="_blank">
@@ -94,7 +98,7 @@ const Lodging: React.FC = () => {
           </a>{" "}
           – Hudson, NY
           <BookingNote>
-            Mention Coco and Grant&apos;s wedding when reaching out to book
+            Email/call to book, mention Coco and Grant's wedding block
           </BookingNote>
         </span>
         <span>

@@ -5,6 +5,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Coco and Grant",
   description: "Celebrating the wedding of Coco and Grant",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.ico.png", type: "image/png" },
+    ],
+    apple: [{ url: "/favicon.ico.png" }],
+  },
 };
 
 export default function RootLayout({

@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Courier_Prime } from "next/font/google";
 
 export const domLovesMary = localFont({
   src: [{ path: "../../../public/fonts/DomLovesMary Pro.ttf", weight: "500" }],
@@ -20,8 +21,9 @@ export const bigBird = localFont({
   display: "swap",
 });
 
-export const catamaran = localFont({
-  src: [{ path: "../../../public/fonts/Catamaran.otf", weight: "500" }],
-  variable: "--font-catamaran",
+export const courier = Courier_Prime({
+  weight: ["400"],
+  subsets: ["latin"],
   display: "swap",
+  variable: "--font-courier",
 });

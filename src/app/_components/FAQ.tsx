@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { bigBird, catamaran } from "../lib/fonts";
+import { bigBird, courier } from "../lib/fonts";
 
 const FAQContainer = styled.div`
   max-width: 720px;
@@ -42,15 +42,14 @@ const FAQQuestion = styled.div`
 `;
 
 const FAQAnswer = styled.div`
-  font-family: ${catamaran.style.fontFamily};
-  font-size: 24px;
+  font-family: ${courier.style.fontFamily};
+  font-size: 18px;
   margin: 24px auto;
   padding: 0px 24px;
 
   &.active {
     transition: all 0.5s ease;
     height: unset;
-    max-height: 1000px;
     border-radius: 5px;
     opacity: 1;
   }
@@ -71,7 +70,7 @@ const FAQAnswer = styled.div`
 
   h2 {
     margin: 1.5rem 0 1rem;
-    font-family: ${bigBird.style.fontFamily};
+    /* font-family: ${bigBird.style.fontFamily}; */
   }
 
   ul {
@@ -143,11 +142,12 @@ const FAQ = () => {
           <br />
           <ul>
             <li>
-              <strong>Hudson</strong> - Farmers & Sons and other nearby hotels.
+              <strong>Hudson</strong> - Farmers & Sons and other nearby hotels
+              on Warren street.
             </li>
             <li>
               <strong>Hillsdale & Surrounding Areas</strong> - Little Cat Lodge,
-              Sylvan Lodge, The Brooks.
+              The Alander, Catamount Lodge
             </li>
           </ul>
 
@@ -164,10 +164,9 @@ const FAQ = () => {
       answer: (
         <>
           <p>
-            Getting around outside of Hudson without a car can be tricky, so if
-            you don&apos;t have access to one, we highly recommend staying in
-            Hudson. That said, here are some local cab companies in the Hudson
-            Valley:
+            Getting around upstate without a car can be tricky, so if you
+            don&apos;t have access to one, we recommend staying in Hudson. That
+            said, here are some local cab companies in the Hudson Valley:
           </p>
           <br />
           <ul>

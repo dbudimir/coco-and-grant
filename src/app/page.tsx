@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useSearchParams } from "next/navigation";
 
 import EnterPassword from "./_components/sections/EnterPassword";
 import Overview from "./_components/sections/Overview";
@@ -28,36 +29,48 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState(false);
+  const searchParams = useSearchParams();
+  const isPBJMode = searchParams.get("mode") === "pbj";
 
   useEffect(() => {
     console.log(password);
     if (isLoaded && typeof window !== "undefined") {
       const localStoragePassword = window.localStorage.getItem("password");
-      const isValid = localStoragePassword === "<3" || password === "<3";
+      const isValid =
+        localStoragePassword === "<3" || password === "<3" || isPBJMode;
 
       setPasswordIsValid(isValid);
 
       if (isValid) {
         // @ts-expect-error - blur is a valid method
-        document.activeElement.blur();
+        document.activeElement?.blur();
         const element = document.getElementById(`content`);
-        // @ts-expect-error - scrollIntoView is a valid method
-        element.scrollIntoView({
+        element?.scrollIntoView({
           behavior: "smooth",
           block: "start",
           inline: "nearest",
         });
       }
     }
-  }, [isLoaded, password, passwordIsValid]);
+  }, [isLoaded, password, passwordIsValid, isPBJMode]);
+
+  // Skip password screen if in PBJ mode
+  useEffect(() => {
+    if (isPBJMode) {
+      setIsLoaded(true);
+      setPasswordIsValid(true);
+    }
+  }, [isPBJMode]);
 
   return (
     <main>
-      <EnterPassword
-        setPassword={setPassword}
-        setIsLoaded={setIsLoaded}
-        isLoaded={isLoaded}
-      />
+      {!isPBJMode && (
+        <EnterPassword
+          setPassword={setPassword}
+          setIsLoaded={setIsLoaded}
+          isLoaded={isLoaded}
+        />
+      )}
 
       <PageContainer
         id="content"

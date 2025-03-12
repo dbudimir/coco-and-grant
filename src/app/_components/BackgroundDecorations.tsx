@@ -5,7 +5,9 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-const Container = styled.div`
+const Container = styled.div<{
+  $isPBJMode: boolean;
+}>`
   position: absolute;
   top: 0;
   left: 0;
@@ -13,7 +15,7 @@ const Container = styled.div`
   pointer-events: none;
   z-index: 1;
   height: 400vh;
-  margin-top: 100vh;
+  margin-top: ${({ $isPBJMode }) => ($isPBJMode ? 0 : 100)}vh;
 `;
 
 const quickFlip = keyframes`
@@ -135,7 +137,7 @@ type Decoration = {
 };
 
 const DECORATION_TYPES = [
-  { src: "/static-assets/decorations/heart.gif", size: 32, type: "heart" },
+  // { src: "/static-assets/decorations/heart.gif", size: 32, type: "heart" },
   {
     src: "/static-assets/decorations/star.png",
     size: 48,
@@ -154,9 +156,10 @@ const DECORATION_TYPES = [
 
 interface Props {
   numDecorations?: number;
+  mode?: string;
 }
 
-const BackgroundDecorations = ({ numDecorations = 14 }: Props) => {
+const BackgroundDecorations = ({ numDecorations = 14, mode }: Props) => {
   const [decorations, setDecorations] = useState<Decoration[]>([]);
   const searchParams = useSearchParams();
   const isPBJMode = searchParams.get("mode") === "pbj";
@@ -259,7 +262,7 @@ const BackgroundDecorations = ({ numDecorations = 14 }: Props) => {
   }, [numDecorations, isPBJMode]);
 
   return (
-    <Container>
+    <Container $isPBJMode={isPBJMode}>
       {decorations.map((decoration, index) => (
         <DecorativeImage
           key={index}

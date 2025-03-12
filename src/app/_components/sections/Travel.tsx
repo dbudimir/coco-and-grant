@@ -37,39 +37,39 @@ const SectionHeader = styled.h2`
   text-align: center;
 `;
 
-const IconPlane = styled.svg`
-  position: absolute;
-  right: 40px;
-  top: 800px;
-  width: 100px;
-  height: 100px;
-  opacity: 0.15;
-  transform: rotate(-45deg);
+// const IconPlane = styled.svg`
+//   position: absolute;
+//   right: 40px;
+//   top: 800px;
+//   width: 100px;
+//   height: 100px;
+//   opacity: 0.15;
+//   transform: rotate(-45deg);
 
-  @media (max-width: 940px) {
-    right: 20px;
-    width: 80px;
-    height: 80px;
-    top: 600px;
-  }
-`;
+//   @media (max-width: 940px) {
+//     right: 20px;
+//     width: 80px;
+//     height: 80px;
+//     top: 600px;
+//   }
+// `;
 
-const IconCar = styled.svg`
-  position: absolute;
-  left: 60px;
-  bottom: 120px;
-  width: 70px;
-  height: 70px;
-  opacity: 0.15;
-  transform: rotate(15deg);
+// const IconCar = styled.svg`
+//   position: absolute;
+//   left: 60px;
+//   bottom: 120px;
+//   width: 70px;
+//   height: 70px;
+//   opacity: 0.15;
+//   transform: rotate(15deg);
 
-  @media (max-width: 940px) {
-    left: 20px;
-    width: 60px;
-    height: 60px;
-    bottom: 80px;
-  }
-`;
+//   @media (max-width: 940px) {
+//     left: 20px;
+//     width: 60px;
+//     height: 60px;
+//     bottom: 80px;
+//   }
+// `;
 
 const WeekendEvents: React.FC = () => {
   return (
@@ -97,6 +97,7 @@ const WeekendEvents: React.FC = () => {
         roughly 2.5 hours from Hillsdale/Hudson. Please text or email Coco or
         Grant if you need any help or advice booking travel!
       </p>
+      <br />
       <SectionHeader>Ground Transportation</SectionHeader>
       <p>
         For those coming from NYC, Hudson and Hillsdale are accessible by nearby
@@ -108,6 +109,7 @@ const WeekendEvents: React.FC = () => {
         For those of you with access to cars within driving distance, we suggest
         driving up or carpooling with friends.
       </p>
+      <br />
       <SectionHeader>Wedding Weekend Transportation</SectionHeader>
       <p>
         Transportation/shuttles during the wedding weekend will be provided

@@ -61,6 +61,15 @@ const BookingNote = styled.div`
   margin-top: 4px;
   margin-left: 24px;
   color: #e43333;
+  position: relative;
+
+  .booking-note-star {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-10px) translateY(-6px);
+    font-size: 1.5em;
+  }
 `;
 
 const Lodging: React.FC = () => {
@@ -98,7 +107,7 @@ const Lodging: React.FC = () => {
           </a>{" "}
           – Hudson, NY
           <BookingNote>
-            Email/call to book, mention Coco and Grant's wedding block
+            Email/call to book, mention Coco and Grant&apos;s wedding block
           </BookingNote>
         </span>
         <span>
@@ -117,11 +126,48 @@ const Lodging: React.FC = () => {
           – Hillsdale NY
         </span>
         <span>
-          <a href="https://www.thewickhotel.com/" target="_blank">
-            The Wick
+          <a href="https://www.theprospectberkshires.com/" target="_blank">
+            Prospect Lake Cabins
+          </a>{" "}
+          – Egremont, MA
+        </span>
+        <span>
+          <a href="https://hudsonwhaler.com/" target="_blank">
+            Hudson Whaler
           </a>{" "}
           – Hudson, NY
         </span>
+        <span>
+          <a href="https://hudsonnavigator.com/" target="_blank">
+            Hudson Navigator
+          </a>{" "}
+          – Hudson, NY
+        </span>
+        <span>
+          <a href="https://theameliahudson.com/" target="_blank">
+            The Amelia
+          </a>{" "}
+          – Hudson, NY
+        </span>
+        <span>
+          <a href="https://www.howardhotel.net/" target="_blank">
+            The Howard Hotel
+          </a>{" "}
+          – Hudson, NY
+        </span>
+        <BookingNote>
+          <span className="booking-note-star">*</span>
+          We plan to have buses running to and from Little Cat Lodge, Farmer and
+          Sons, Hudson Whaler, The Howard Hotel, and The Alander. Please reach
+          out to{" "}
+          <a
+            href="mailto:grantandcoco@gmail.com"
+            style={{ textDecoration: "underline" }}
+          >
+            grantandcoco@gmail.com
+          </a>{" "}
+          if you have any questions.
+        </BookingNote>
       </HotelList>
       <h1>Airbnbs</h1>
       <p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "next/navigation";
 
@@ -25,7 +25,8 @@ const PageContainer = styled.div`
   }
 `;
 
-export default function Home() {
+// Client component that uses useSearchParams
+function HomeContent() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [password, setPassword] = useState("");
   const [passwordIsValid, setPasswordIsValid] = useState(false);
@@ -87,5 +88,14 @@ export default function Home() {
         <Questions />
       </PageContainer>
     </main>
+  );
+}
+
+// Main component with Suspense boundary
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }

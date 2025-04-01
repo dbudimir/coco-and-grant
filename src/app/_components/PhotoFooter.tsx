@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import Image from "next/image";
 
 const SectionContainer = styled.div`
   padding: 64px 0px 0px;
@@ -12,20 +13,24 @@ const SectionContainer = styled.div`
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
-  /* height: 420px; */
   overflow: hidden;
   position: relative;
-
-  img {
-    height: 420px;
-    opacity: 0.75;
-    filter: grayscale(1) contrast(1.75);
-  }
+  height: 420px;
+  width: 100%;
 
   @media (max-width: 768px) {
-    img {
-      height: 240px;
-    }
+    height: 240px;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  position: relative;
+  flex: 1;
+  height: 100%;
+
+  img {
+    opacity: 0.75 !important;
+    filter: grayscale(1) contrast(1.75) !important;
   }
 `;
 
@@ -38,8 +43,14 @@ const PhotoFooter: React.FC<PhotoHeaderProps> = ({ images }) => {
     <SectionContainer>
       <ImageContainer>
         {images.map((image, index) => (
-          <img src={image} alt={`Image ${index}`} key={index} />
-          // <Image key={index} src={image} alt={`Image ${index}`} fill={true} />
+          <ImageWrapper key={index}>
+            <Image
+              src={image}
+              alt={`Image ${index}`}
+              fill={true}
+              style={{ objectFit: "cover" }}
+            />
+          </ImageWrapper>
         ))}
       </ImageContainer>
     </SectionContainer>

@@ -59,7 +59,7 @@ const Typewriter = ({
     }
 
     return () => clearTimeout(timeoutId);
-  }, [displayedText, text, typingSpeed]);
+  }, [displayedText, text, typingSpeed, textIndex]);
 
   return (
     <TypewriterContainer>

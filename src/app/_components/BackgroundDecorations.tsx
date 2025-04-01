@@ -2,7 +2,7 @@
 
 import styled, { keyframes, css } from "styled-components";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 const Container = styled.div<{
@@ -42,7 +42,7 @@ const DecorativeImage = styled(Image)<{
   filter: ${({ $noEffects }) =>
     $noEffects ? "none" : "sepia(0.2) brightness(0.95) contrast(0.9)"};
   transform: ${({ $flip, $rotation }) =>
-    `${$flip ? "scaleX(-1)" : "none"} rotate(${$rotation}deg)`};
+    `${$flip ? "scaleX(-1)" : "none"} rotate(${$rotation || 0}deg)`};
   ${({ $position }) => $position};
   transition: opacity 0.3s ease;
   /* ${({ $isStar }) =>
@@ -131,7 +131,7 @@ type Decoration = {
   size: number;
   isStar?: boolean;
   flip?: boolean;
-  position?: string;
+  position?: string; // Keep as optional for initial creation
   type: string;
   rotation?: number;
 };
@@ -156,10 +156,10 @@ const DECORATION_TYPES = [
 
 interface Props {
   numDecorations?: number;
-  mode?: string;
 }
 
-const BackgroundDecorations = ({ numDecorations = 14, mode }: Props) => {
+// Wrap the component that uses useSearchParams in a client component
+function BackgroundDecorationsContent({ numDecorations = 14 }: Props) {
   const [decorations, setDecorations] = useState<Decoration[]>([]);
   const searchParams = useSearchParams();
   const isPBJMode = searchParams.get("mode") === "pbj";
@@ -259,7 +259,7 @@ const BackgroundDecorations = ({ numDecorations = 14, mode }: Props) => {
     };
 
     setDecorations(shuffleArray(decorationsWithPositions));
-  }, [numDecorations, isPBJMode]);
+  }, [isPBJMode, numDecorations]);
 
   return (
     <Container $isPBJMode={isPBJMode}>
@@ -267,17 +267,26 @@ const BackgroundDecorations = ({ numDecorations = 14, mode }: Props) => {
         <DecorativeImage
           key={index}
           src={decoration.src}
-          alt=""
+          alt={`Decoration ${index}`}
           width={decoration.size}
           height={decoration.size}
           $position={decoration.position || ""}
           $flip={decoration.flip}
-          $isStar={decoration.isStar}
+          $isStar={decoration.type === "star"}
           $rotation={decoration.rotation}
-          $noEffects={isPBJMode}
+          $noEffects={decoration.type === "pbj"}
         />
       ))}
     </Container>
+  );
+}
+
+// Main component with Suspense boundary
+const BackgroundDecorations = (props: Props) => {
+  return (
+    <Suspense fallback={<div>Loading decorations...</div>}>
+      <BackgroundDecorationsContent {...props} />
+    </Suspense>
   );
 };
 

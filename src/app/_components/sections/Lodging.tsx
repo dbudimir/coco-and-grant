@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { bigBird } from "../../lib/fonts";
+import { useSearchParams } from "next/navigation";
 
 import PhotoHeader from "../PhotoHeader";
 
@@ -73,12 +74,16 @@ const BookingNote = styled.div`
 `;
 
 const Lodging: React.FC = () => {
+  const searchParams = useSearchParams();
+  const isJPMode = searchParams.get("mode") === "jp";
+
+  const headerImage = isJPMode
+    ? "/static-assets/jp/jp-lodging.png"
+    : "/static-assets/accommodations-1.JPG";
+
   return (
     <LodgingContainer id="lodging">
-      <PhotoHeader
-        title2="Lodging"
-        images={["/static-assets/accommodations-1.JPG"]}
-      />
+      <PhotoHeader title2="Lodging" images={[headerImage]} />
       <p>
         Hudson and Hillsdale are surrounded by many boutique hotels and Airbnbs.
         Here is a list of options that we recommend exploring. For those

@@ -136,26 +136,8 @@ type Decoration = {
   rotation?: number;
 };
 
-const DECORATION_TYPES = [
-  // { src: "/static-assets/decorations/heart.gif", size: 32, type: "heart" },
-  {
-    src: "/static-assets/decorations/star.png",
-    size: 48,
-    type: "star",
-    isStar: true,
-  },
-  { src: "/static-assets/decorations/cupid.png", size: 164, type: "cupid" },
-  // { src: "/static-assets/decorations/stars.gif", size: 24, type: "stars" },
-  // {
-  //   src: "/static-assets/decorations/heart-loader-2.gif",
-  //   size: 32,
-  //   type: "heart2",
-  // },
-  // { src: "/static-assets/decorations/pbj.gif", size: 32, type: "pbj" },
-] as const;
-
 interface Props {
-  numDecorations?: number;
+  readonly numDecorations?: number;
 }
 
 // Wrap the component that uses useSearchParams in a client component
@@ -163,6 +145,31 @@ function BackgroundDecorationsContent({ numDecorations = 14 }: Props) {
   const [decorations, setDecorations] = useState<Decoration[]>([]);
   const searchParams = useSearchParams();
   const isPBJMode = searchParams.get("mode") === "pbj";
+  const isJPMode = searchParams.get("mode") === "jp";
+
+  const DECORATION_TYPES = [
+    // { src: "/static-assets/decorations/heart.gif", size: 32, type: "heart" },
+    {
+      src: "/static-assets/decorations/star.png",
+      size: 48,
+      type: "star",
+      isStar: true,
+    },
+    isJPMode
+      ? { src: "/static-assets/jp/jp-cupid.png", size: 72, type: "cupid" }
+      : {
+          src: "/static-assets/decorations/cupid.png",
+          size: 164,
+          type: "cupid",
+        },
+    // { src: "/static-assets/decorations/stars.gif", size: 24, type: "stars" },
+    // {
+    //   src: "/static-assets/decorations/heart-loader-2.gif",
+    //   size: 32,
+    //   type: "heart2",
+    // },
+    // { src: "/static-assets/decorations/pbj.gif", size: 32, type: "pbj" },
+  ] as const;
 
   useEffect(() => {
     if (isPBJMode) {

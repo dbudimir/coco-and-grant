@@ -14,6 +14,7 @@ import Travel from "./_components/sections/Travel";
 import Lodging from "./_components/sections/Lodging";
 import Questions from "./_components/sections/Questions";
 import BackgroundDecorations from "./_components/BackgroundDecorations";
+import JohnPorkSlideIn from "./_components/JohnPorkSlideIn";
 
 const PageContainer = styled.div`
   height: unset;
@@ -32,13 +33,16 @@ function HomeContent() {
   const [passwordIsValid, setPasswordIsValid] = useState(false);
   const searchParams = useSearchParams();
   const isPBJMode = searchParams.get("mode") === "pbj";
+  const isJPMode = searchParams.get("mode") === "jp";
 
   useEffect(() => {
-    console.log(password);
     if (isLoaded && typeof window !== "undefined") {
       const localStoragePassword = window.localStorage.getItem("password");
       const isValid =
-        localStoragePassword === "<3" || password === "<3" || isPBJMode;
+        localStoragePassword === "<3" ||
+        password === "<3" ||
+        isPBJMode ||
+        isJPMode;
 
       setPasswordIsValid(isValid);
 
@@ -78,6 +82,7 @@ function HomeContent() {
         className={passwordIsValid ? "content" : "content hidden"}
       >
         {passwordIsValid && <BackgroundDecorations />}
+        {passwordIsValid && isJPMode && <JohnPorkSlideIn />}
         <Overview />
         <About />
         <NavBar />

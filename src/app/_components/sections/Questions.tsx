@@ -3,6 +3,7 @@
 import styled from "styled-components";
 import { HeaderText } from "@/app/styles";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 // Components
 import PhotoFooter from "../PhotoFooter";
@@ -34,14 +35,17 @@ const ImageContainer = styled.div`
 `;
 
 const Questions: React.FC = () => {
+  const searchParams = useSearchParams();
+  const isJPMode = searchParams.get("mode") === "jp";
+
+  const headerImage = isJPMode
+    ? "/static-assets/jp/jp-questions-header.png"
+    : "/static-assets/questions-header.png";
+
   return (
     <QuestionsContainer id="faq">
       <ImageContainer>
-        <Image
-          alt="questions-header"
-          src="/static-assets/questions-header.png"
-          fill={true}
-        />
+        <Image alt="questions-header" src={headerImage} fill={true} />
       </ImageContainer>
       <HeaderText
         style={{
@@ -56,8 +60,12 @@ const Questions: React.FC = () => {
       <PhotoFooter
         images={[
           "/static-assets/header-3.JPG",
-          "/static-assets/questions-1.png",
-          "/static-assets/questions-2.jpg",
+          isJPMode
+            ? "/static-assets/jp/jp-questions-1.png"
+            : "/static-assets/questions-1.png",
+          isJPMode
+            ? "/static-assets/jp/jp-questions-2.png"
+            : "/static-assets/questions-2.jpg",
           "/static-assets/header-2.png",
         ]}
       />

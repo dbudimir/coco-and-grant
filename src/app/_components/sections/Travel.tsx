@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { bigBird } from "../../lib/fonts";
+import { useSearchParams } from "next/navigation";
 
 import PhotoHeader from "../PhotoHeader";
 
@@ -72,9 +73,16 @@ const SectionHeader = styled.h2`
 // `;
 
 const WeekendEvents: React.FC = () => {
+  const searchParams = useSearchParams();
+  const isJPMode = searchParams.get("mode") === "jp";
+
+  const headerImage = isJPMode
+    ? "/static-assets/jp/jp-travel.png"
+    : "/static-assets/travel-1.jpg";
+
   return (
     <TravelContainer id="travel">
-      <PhotoHeader title1="Travel" images={["/static-assets/travel-1.jpg"]} />
+      <PhotoHeader title1="Travel" images={[headerImage]} />
       {/* <IconPlane viewBox="0 0 46.876 46.876" fill="#e43333">
         <path
           d="M26.602,24.568l15.401,6.072l-0.389-4.902c-10.271-7.182-9.066-6.481-14.984-10.615V2.681

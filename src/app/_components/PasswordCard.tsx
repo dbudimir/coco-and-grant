@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { bigBird } from "../lib/fonts";
 import DateOverlay from "./DateOverlay";
+import { useSearchParams } from "next/navigation";
 
 const PasswordContainer = styled.div`
   display: flex;
@@ -78,6 +79,9 @@ const PasswordCard = ({
   isPasswordInput?: boolean;
   setPassword?: (password: string) => void;
 }) => {
+  const searchParams = useSearchParams();
+  const isJPMode = searchParams.get("mode") === "jp";
+
   return (
     <InnerCard>
       {isPasswordInput ? (
@@ -99,7 +103,7 @@ const PasswordCard = ({
           </form>
         </PasswordContainer>
       ) : (
-        <InnerText>Coco and Grant</InnerText>
+        <InnerText>{isJPMode ? "Coco and Pork" : "Coco and Grant"}</InnerText>
       )}
       {!isPasswordInput && <DateOverlay date="9.6.25" />}
     </InnerCard>

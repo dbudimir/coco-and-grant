@@ -126,6 +126,16 @@ const About: React.FC = () => {
       >
         FAQ
       </AnimatedLink>
+      <AnimatedLink
+        href="https://www.zola.com/wedding/cocoandgrant/rsvp"
+        target="_blank"
+        rel="noopener noreferrer"
+        $isVisible={isVisible}
+        $index={4}
+        $shouldBounce={shouldBounce}
+      >
+        RSVP
+      </AnimatedLink>
     </NavBarContainer>
   );
 };

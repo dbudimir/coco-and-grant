@@ -20,7 +20,7 @@ const WeekendEvents: React.FC = () => {
         location="The Caboose"
         address="60 S Front St, Hudson, NY"
         mapUrl="https://maps.google.com/?q=60+S+Front+St,+Hudson,+NY"
-        time="7:30PM to 10:30PM"
+        time="6:30PM to 10:00PM"
         attire="Festive Attire"
       />
       <EventCard

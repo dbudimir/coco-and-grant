@@ -108,6 +108,50 @@ const FAQ = () => {
 
   const faqData = [
     {
+      question:
+        "What is festive attire (Friday), what is festive cocktail attire (Saturday)??",
+      answer: (
+        <>
+          <p>
+            <strong>Friday -- Festive (aka Dressy Casual)</strong>
+            <br />
+            We&apos;re calling Friday night &ldquo;festive,&rdquo; which to us
+            means: elevated, expressive, and fun. Think dressy casual. More
+            polished than your everyday look, but no need for cocktail dresses
+            or suits unless you want to. Jacket, no tie is in the realm. Bold
+            prints, colors, and personal flair are all encouraged. If you feel
+            great in all black, we honor that too :)
+          </p>
+          <br />
+          <p>
+            <strong>
+              Saturday Wedding – Festive Cocktail (aka Semi-Formal)
+            </strong>
+            <br />
+            Saturday is cocktail or semi-formal attire, but with personality.
+            Suits or jackets for men (ties optional), cocktail dresses (short or
+            long), pantsuits, or anything that makes you feel like your best
+            dressed self. We love color, pattern, feathers, sparkle, don&apos;t
+            hold back if you love a look. That said, if you prefer something
+            classic or minimal, that is perfect too!
+          </p>
+          <br />
+          <p>
+            At the end of the day, we want you to feel comfortable, confident,
+            and ready to dance.
+          </p>
+          <br />
+          <p>
+            <strong>Shoes</strong>
+            <br />
+            Both events will take place on grass, gravel, and wood dance floors
+            so we recommend comfortable, block heels, flats, or party shoes you
+            can move in.
+          </p>
+        </>
+      ),
+    },
+    {
       question: "What if I know I can't make it?",
       answer: (
         <p>

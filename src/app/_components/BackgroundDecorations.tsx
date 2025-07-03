@@ -2,7 +2,7 @@
 
 import styled, { keyframes, css } from "styled-components";
 import Image from "next/image";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState, Suspense, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 
 const Container = styled.div<{
@@ -147,29 +147,33 @@ function BackgroundDecorationsContent({ numDecorations = 14 }: Props) {
   const isPBJMode = searchParams.get("mode") === "pbj";
   const isJPMode = searchParams.get("mode") === "jp";
 
-  const DECORATION_TYPES = [
-    // { src: "/static-assets/decorations/heart.gif", size: 32, type: "heart" },
-    {
-      src: "/static-assets/decorations/star.png",
-      size: 48,
-      type: "star",
-      isStar: true,
-    },
-    isJPMode
-      ? { src: "/static-assets/jp/jp-cupid.png", size: 72, type: "cupid" }
-      : {
-          src: "/static-assets/decorations/cupid.png",
-          size: 164,
-          type: "cupid",
+  const DECORATION_TYPES = useMemo(
+    () =>
+      [
+        // { src: "/static-assets/decorations/heart.gif", size: 32, type: "heart" },
+        {
+          src: "/static-assets/decorations/star.png",
+          size: 48,
+          type: "star",
+          isStar: true,
         },
-    // { src: "/static-assets/decorations/stars.gif", size: 24, type: "stars" },
-    // {
-    //   src: "/static-assets/decorations/heart-loader-2.gif",
-    //   size: 32,
-    //   type: "heart2",
-    // },
-    // { src: "/static-assets/decorations/pbj.gif", size: 32, type: "pbj" },
-  ] as const;
+        isJPMode
+          ? { src: "/static-assets/jp/jp-cupid.png", size: 72, type: "cupid" }
+          : {
+              src: "/static-assets/decorations/cupid.png",
+              size: 164,
+              type: "cupid",
+            },
+        // { src: "/static-assets/decorations/stars.gif", size: 24, type: "stars" },
+        // {
+        //   src: "/static-assets/decorations/heart-loader-2.gif",
+        //   size: 32,
+        //   type: "heart2",
+        // },
+        // { src: "/static-assets/decorations/pbj.gif", size: 32, type: "pbj" },
+      ] as const,
+    [isJPMode]
+  );
 
   useEffect(() => {
     if (isPBJMode) {
@@ -266,7 +270,7 @@ function BackgroundDecorationsContent({ numDecorations = 14 }: Props) {
     };
 
     setDecorations(shuffleArray(decorationsWithPositions));
-  }, [isPBJMode, numDecorations]);
+  }, [isPBJMode, isJPMode, numDecorations, DECORATION_TYPES]);
 
   return (
     <Container $isPBJMode={isPBJMode}>

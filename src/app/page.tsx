@@ -12,6 +12,7 @@ import Location from "./_components/sections/Location";
 import WeekendEvents from "./_components/sections/WeekendEvents";
 import Travel from "./_components/sections/Travel";
 import Lodging from "./_components/sections/Lodging";
+import Registry from "./_components/sections/Registry";
 import Questions from "./_components/sections/Questions";
 import BackgroundDecorations from "./_components/BackgroundDecorations";
 import JohnPorkSlideIn from "./_components/JohnPorkSlideIn";
@@ -57,7 +58,7 @@ function HomeContent() {
         });
       }
     }
-  }, [isLoaded, password, passwordIsValid, isPBJMode]);
+  }, [isLoaded, password, passwordIsValid, isPBJMode, isJPMode]);
 
   // Skip password screen if in PBJ mode
   useEffect(() => {
@@ -84,12 +85,13 @@ function HomeContent() {
         {passwordIsValid && <BackgroundDecorations />}
         {passwordIsValid && isJPMode && <JohnPorkSlideIn />}
         <Overview />
-        <About />
         <NavBar />
+        <About />
         <Location />
         <WeekendEvents />
         <Travel />
         <Lodging />
+        <Registry />
         <Questions />
       </PageContainer>
     </main>

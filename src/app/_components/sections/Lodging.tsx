@@ -32,6 +32,10 @@ const LodgingContainer = styled.div`
     margin-bottom: 48px;
     padding: 0 24px;
 
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
     a {
       text-decoration: underline;
       text-underline-offset: 4px;

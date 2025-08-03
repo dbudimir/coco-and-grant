@@ -100,7 +100,7 @@ const Lodging: React.FC = () => {
       <HotelList>
         <span>
           <a
-            href="https://hotels.cloudbeds.com/reservation/VWy0rd#promo=GrantConner2025"
+            href="https://hotels.cloudbeds.com/en/reservation/VWy0rd?allotment_block_code=b330790&checkin=2025-09-05&checkout=2025-09-07&currency=usd"
             target="_blank"
           >
             Little Cat Lodge

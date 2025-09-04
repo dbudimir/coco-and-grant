@@ -164,19 +164,6 @@ const Lodging: React.FC = () => {
           </a>{" "}
           – Hudson, NY
         </span>
-        <BookingNote>
-          <span className="booking-note-star">*</span>
-          We plan to have buses running to and from Little Cat Lodge, Farmer and
-          Sons, Hudson Whaler, The Howard Hotel, and The Alander. Please reach
-          out to{" "}
-          <a
-            href="mailto:grantandcoco@gmail.com"
-            style={{ textDecoration: "underline" }}
-          >
-            grantandcoco@gmail.com
-          </a>{" "}
-          if you have any questions.
-        </BookingNote>
       </HotelList>
       <h1>Airbnbs</h1>
       <p>

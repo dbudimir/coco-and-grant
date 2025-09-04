@@ -30,7 +30,7 @@ const WeekendEvents: React.FC = () => {
         location="Taconic Ridge Farm"
         address="2846 NY-23, Hillsdale, NY"
         mapUrl="https://maps.google.com/?q=2846+NY-23,+Hillsdale,+NY"
-        time="3:30PM to 10:00PM"
+        time="3:45PM to 10:00PM"
         attire="Cocktail Attire"
       />
       <EventCard
